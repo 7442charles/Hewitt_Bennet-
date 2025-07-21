@@ -11,6 +11,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="Assets/images/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Assets/images/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="Assets/images/favicon_io/site.webmanifest">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
     <style>
         #chatbot-container {
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -41,6 +44,13 @@
             color: #4B5563; 
             margin-right: auto; 
             text-align: left;
+        }
+        /* SweetAlert2 custom button styling */
+        .swal2-confirm.bg-blue-600 {
+            background-color: #2563EB !important; /* Tailwind blue-600 */
+        }
+        .swal2-confirm.bg-blue-600:hover {
+            background-color: #1D4ED8 !important; /* Tailwind blue-700 */
         }
     </style>
 </head>
@@ -303,185 +313,198 @@
     <!-- Courses section -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <!-- Section Title -->
             <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-blue-900">Our Courses</h2>
-            <p class="text-gray-600 mt-2 text-sm">Explore our diverse learning paths tailored to your goals.</p>
+                <h2 class="text-4xl font-bold text-blue-900">Our Courses</h2>
+                <p class="text-gray-600 mt-2 text-sm">Explore our diverse learning paths tailored to your goals.</p>
             </div>
 
-            <!-- Category 1 -->
             <div class="mb-12">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-3xl font-bold text-blue-900">Business & Finance</h3>
-                <a href="/courses/business" class="text-blue-600 hover:underline font-semibold">See All</a>
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-3xl font-bold text-blue-900">Business & Finance</h3>
+                    <a href="/courses/business" class="text-blue-600 hover:underline font-semibold">See All</a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-xl shadow hover:shadow-md transition">
+                        <img src="Assets/images/financial_literacy_basics.jpg" alt="Course" class="rounded-t-xl w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold mb-1 text-blue-900">Financial Literacy Basics</h4>
+                            <p class="text-sm text-gray-600 mb-2">Duration: 6 Weeks</p>
+                            <p class="text-gray-700 text-sm mb-3">Learn how to manage personal finances and budgeting with practical exercises.</p>
+
+                            <div class="text-xs mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Regular</span>
+                                <span class="line-through text-gray-400 px-2 py-1">Part Time</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Online</span>
+                            </div>
+
+                            <div class="text-sm font-semibold text-gray-800 mb-2">
+                                Fees: <a href="single-course.html#fees" class="text-blue-600 hover:underline">View Fee Structure</a>
+                            </div>
+
+                            <div class="flex justify-between items-center mt-4">
+                                <a href="single-course.html" class="text-sm text-blue-600 hover:underline">View Details</a>
+                                <a href="#enroll" class="bg-blue-600 text-white text-sm px-5 py-2 rounded hover:bg-blue-700 font-semibold">Apply</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow hover:shadow-md transition">
+                        <img src="Assets/images/Microeconomics_Essentials.jpg" alt="Course" class="rounded-t-xl w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold mb-1 text-blue-900">Microeconomics Essentials</h4>
+                            <p class="text-sm text-gray-600 mb-2">Duration: 8 Weeks</p>
+                            <p class="text-gray-700 text-sm mb-3">Understand consumer behavior and market structures in real-world contexts.</p>
+                            <div class="text-xs mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Regular</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Part Time</span>
+                                <span class="line-through text-gray-400 px-2 py-1">Online</span>
+                            </div>
+                            <div class="text-sm font-semibold text-gray-800 mb-2">
+                                Fees: <a href="single-course.html#fees" class="text-blue-600 hover:underline">View Fee Structure</a>
+                            </div>
+                            <div class="flex justify-between items-center mt-4">
+                                <a href="single-course.html" class="text-sm text-blue-600 hover:underline">View Details</a>
+                                <a href="#enroll" class="bg-blue-600 text-white text-sm px-5 py-2 rounded hover:bg-blue-700 font-semibold">Apply</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow hover:shadow-md transition">
+                        <img src="Assets/images/Budgeting_Mastery.jpg" alt="Course" class="rounded-t-xl w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold mb-1 text-blue-900">Budgeting Mastery</h4>
+                            <p class="text-sm text-gray-600 mb-2">Duration: 4 Weeks</p>
+                            <p class="text-gray-700 text-sm mb-3">Hands-on budgeting techniques for families, individuals, and startups.</p>
+                            <div class="text-xs mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Regular</span>
+                                <span class="line-through text-gray-400 px-2 py-1">Part Time</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Online</span>
+                            </div>
+                            <div class="text-sm font-semibold text-gray-800 mb-2">
+                                Fees: <a href="single-course.html#fees" class="text-blue-600 hover:underline">View Fee Structure</a>
+                            </div>
+                            <div class="flex justify-between items-center mt-4">
+                                <a href="single-course.html" class="text-sm text-blue-600 hover:underline">View Details</a>
+                                <a href="#enroll" class="bg-blue-600 text-white text-sm px-5 py-2 rounded hover:bg-blue-700 font-semibold">Apply</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow hover:shadow-md transition">
+                        <img src="Assets/images/Microeconomics_Essentials.jpg" alt="Course" class="rounded-t-xl w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold mb-1 text-blue-900">Intro to Business Admin</h4>
+                            <p class="text-sm text-gray-600 mb-2">Duration: 10 Weeks</p>
+                            <p class="text-gray-700 text-sm mb-3">Explore the principles of running and managing businesses effectively.</p>
+                            <div class="text-xs mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Regular</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Part Time</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Online</span>
+                            </div>
+                            <div class="text-sm font-semibold text-gray-800 mb-2">
+                                Fees: <a href="single-course.html#fees" class="text-blue-600 hover:underline">View Fee Structure</a>
+                            </div>
+                            <div class="flex justify-between items-center mt-4">
+                                <a href="single-course.html" class="text-sm text-blue-600 hover:underline">View Details</a>
+                                <a href="#enroll" class="bg-blue-600 text-white text-sm px-5 py-2 rounded hover:bg-blue-700 font-semibold">Apply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Course Card 1 -->
-                <div class="bg-white rounded-xl shadow hover:shadow-md transition">
-                <img src="Assets/images/financial_literacy_basics.jpg" alt="Course" class="rounded-t-xl w-full h-48 object-cover">
-                <div class="p-4">
-                    <h4 class="text-lg font-bold mb-1 text-blue-900">Financial Literacy Basics</h4>
-                    <p class="text-sm text-gray-600 mb-2">Duration: 6 Weeks</p>
-                    <p class="text-gray-700 text-sm mb-3">Learn how to manage personal finances and budgeting with practical exercises.</p>
-
-                    <!-- Learning Modes -->
-                    <div class="text-xs mb-3">
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Regular</span>
-                    <span class="line-through text-gray-400 px-2 py-1">Part Time</span>
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Online</span>
-                    </div>
-
-                    <div class="flex justify-between items-center mt-4">
-                    <a href="#" class="text-sm text-blue-600 hover:underline">Read More</a>
-                    <a href="#" class="bg-blue-600 text-white text-sm px-5 py-2 rounded hover:bg-blue-700 font-semibold">Apply</a>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Course Card 2 -->
-                <div class="bg-white rounded-xl shadow hover:shadow-md transition">
-                <img src="Assets/images/Microeconomics_Essentials.jpg" alt="Course" class="rounded-t-xl w-full h-48 object-cover">
-                <div class="p-4">
-                    <h4 class="text-lg font-bold mb-1 text-blue-900">Microeconomics Essentials</h4>
-                    <p class="text-sm text-gray-600 mb-2">Duration: 8 Weeks</p>
-                    <p class="text-gray-700 text-sm mb-3">Understand consumer behavior and market structures in real-world contexts.</p>
-                    <div class="text-xs mb-3">
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Regular</span>
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Part Time</span>
-                    <span class="line-through text-gray-400 px-2 py-1">Online</span>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                    <a href="#" class="text-sm text-blue-600 hover:underline">Read More</a>
-                    <a href="#" class="bg-blue-600 text-white text-sm px-5 py-2 rounded hover:bg-blue-700 font-semibold">Apply</a>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Course Card 3 -->
-                <div class="bg-white rounded-xl shadow hover:shadow-md transition">
-                <img src="Assets/images/Budgeting_Mastery.jpg" alt="Course" class="rounded-t-xl w-full h-48 object-cover">
-                <div class="p-4">
-                    <h4 class="text-lg font-bold mb-1 text-blue-900">Budgeting Mastery</h4>
-                    <p class="text-sm text-gray-600 mb-2">Duration: 4 Weeks</p>
-                    <p class="text-gray-700 text-sm mb-3">Hands-on budgeting techniques for families, individuals, and startups.</p>
-                    <div class="text-xs mb-3">
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Regular</span>
-                    <span class="line-through text-gray-400 px-2 py-1">Part Time</span>
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Online</span>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                    <a href="#" class="text-sm text-blue-600 hover:underline">Read More</a>
-                    <a href="#" class="bg-blue-600 text-white text-sm px-5 py-2 rounded hover:bg-blue-700 font-semibold">Apply</a>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Course Card 4 -->
-                <div class="bg-white rounded-xl shadow hover:shadow-md transition">
-                <img src="Assets/images/Microeconomics_Essentials.jpg" alt="Course" class="rounded-t-xl w-full h-48 object-cover">
-                <div class="p-4">
-                    <h4 class="text-lg font-bold mb-1 text-blue-900">Intro to Business Admin</h4>
-                    <p class="text-sm text-gray-600 mb-2">Duration: 10 Weeks</p>
-                    <p class="text-gray-700 text-sm mb-3">Explore the principles of running and managing businesses effectively.</p>
-                    <div class="text-xs mb-3">
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Regular</span>
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1">Part Time</span>
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Online</span>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                    <a href="#" class="text-sm text-blue-600 hover:underline">Read More</a>
-                    <a href="#" class="bg-blue-600 text-white text-sm px-5 py-2 rounded hover:bg-blue-700 font-semibold">Apply</a>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
-
-            <!-- Category 2 -->
             <div>
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-3xl font-bold text-blue-900">Technology & Development</h3>
-                <a href="/courses/tech" class="text-blue-600 hover:underline font-semibold">See All</a>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Course Card 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <img src="Assets/images/web_dev.jpg" alt="Web Development" class="w-full h-40 object-cover">
-                <div class="p-4">
-                    <h4 class="text-xl font-semibold text-blue-900 mb-1">Web Development</h4>
-                    <p class="text-sm text-gray-600 mb-2">Duration: 8 Weeks</p>
-                    <p class="text-gray-700 text-sm mb-4">Learn the latest web technologies to build fast, responsive websites.</p>
-                    <div class="flex gap-2 text-xs font-semibold mb-4">
-                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Regular</span>
-                    <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Part-time</span>
-                    <span class="line-through text-gray-400 px-2 py-1">Online</span>
-                    </div>
-                    <div class="flex justify-between">
-                    <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Read More</a>
-                    <a href="#" class="bg-blue-700 text-white text-sm px-4 py-1 rounded hover:bg-blue-800">Apply</a>
-                    </div>
-                </div>
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-3xl font-bold text-blue-900">Technology & Development</h3>
+                    <a href="/courses/tech" class="text-blue-600 hover:underline font-semibold">See All</a>
                 </div>
 
-                <!-- Course Card 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <img src="Assets/images/mobile_dev.jpg" alt="Mobile App Development" class="w-full h-40 object-cover">
-                <div class="p-4">
-                    <h4 class="text-xl font-semibold text-blue-900 mb-1">Mobile App Dev</h4>
-                    <p class="text-sm text-gray-600 mb-2">Duration: 10 Weeks</p>
-                    <p class="text-gray-700 text-sm mb-4">Master building apps for Android and iOS using modern frameworks.</p>
-                    <div class="flex gap-2 text-xs font-semibold mb-4">
-                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Regular</span>
-                    <span class="line-through text-gray-400 px-2 py-1">Part-time</span>
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Online</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="Assets/images/web_dev.jpg" alt="Web Development" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold text-blue-900 mb-1">Web Development</h4>
+                            <p class="text-sm text-gray-600 mb-2">Duration: 8 Weeks</p>
+                            <p class="text-gray-700 text-sm mb-4">Learn the latest web technologies to build fast, responsive websites.</p>
+                            <div class="flex gap-2 text-xs font-semibold mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Regular</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Part-time</span>
+                                <span class="line-through text-gray-400 px-2 py-1">Online</span>
+                            </div>
+                            <div class="text-sm font-semibold text-gray-800 mb-2">
+                                Fees: <a href="single-course.html#fees" class="text-blue-600 hover:underline">View Fee Structure</a>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="single-course.html" class="text-blue-600 hover:underline text-sm font-medium">View Details</a>
+                                <a href="#enroll" class="bg-blue-700 text-white text-sm px-4 py-1 rounded hover:bg-blue-800">Apply</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex justify-between">
-                    <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Read More</a>
-                    <a href="#" class="bg-blue-700 text-white text-sm px-4 py-1 rounded hover:bg-blue-800">Apply</a>
-                    </div>
-                </div>
-                </div>
 
-                <!-- Course Card 3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <img src="Assets/images/cyber_security.svg" alt="Cybersecurity" class="w-full h-40 object-cover">
-                <div class="p-4">
-                    <h4 class="text-xl font-semibold text-blue-900 mb-1">Cybersecurity</h4>
-                    <p class="text-sm text-gray-600 mb-2">Duration: 12 Weeks</p>
-                    <p class="text-gray-700 text-sm mb-4">Understand how to secure systems and protect data from threats.</p>
-                    <div class="flex gap-2 text-xs font-semibold mb-4">
-                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Regular</span>
-                    <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Part-time</span>
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Online</span>
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="Assets/images/mobile_dev.jpg" alt="Mobile App Development" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold text-blue-900 mb-1">Mobile App Dev</h4>
+                            <p class="text-sm text-gray-600 mb-2">Duration: 10 Weeks</p>
+                            <p class="text-gray-700 text-sm mb-4">Master building apps for Android and iOS using modern frameworks.</p>
+                            <div class="flex gap-2 text-xs font-semibold mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Regular</span>
+                                <span class="line-through text-gray-400 px-2 py-1">Part-time</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Online</span>
+                            </div>
+                            <div class="text-sm font-semibold text-gray-800 mb-2">
+                                Fees: <a href="single-course.html#fees" class="text-blue-600 hover:underline">View Fee Structure</a>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="single-course.html" class="text-blue-600 hover:underline text-sm font-medium">View Details</a>
+                                <a href="#enroll" class="bg-blue-700 text-white text-sm px-4 py-1 rounded hover:bg-blue-800">Apply</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex justify-between">
-                    <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Read More</a>
-                    <a href="#" class="bg-blue-700 text-white text-sm px-4 py-1 rounded hover:bg-blue-800">Apply</a>
-                    </div>
-                </div>
-                </div>
 
-                <!-- Course Card 4 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <img src="Assets/images/Machine_Learning.svg" alt="AI & Machine Learning" class="w-full h-40 object-cover">
-                <div class="p-4">
-                    <h4 class="text-xl font-semibold text-blue-900 mb-1">AI & Machine Learning</h4>
-                    <p class="text-sm text-gray-600 mb-2">Duration: 14 Weeks</p>
-                    <p class="text-gray-700 text-sm mb-4">Dive into AI concepts, models, and tools to build intelligent systems.</p>
-                    <div class="flex gap-2 text-xs font-semibold mb-4">
-                    <span class="line-through text-gray-400 px-2 py-1">Regular</span>
-                    <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Part-time</span>
-                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Online</span>
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="Assets/images/cyber_security.svg" alt="Cybersecurity" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold text-blue-900 mb-1">Cybersecurity</h4>
+                            <p class="text-sm text-gray-600 mb-2">Duration: 12 Weeks</p>
+                            <p class="text-gray-700 text-sm mb-4">Understand how to secure systems and protect data from threats.</p>
+                            <div class="flex gap-2 text-xs font-semibold mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Regular</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Part-time</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Online</span>
+                            </div>
+                            <div class="text-sm font-semibold text-gray-800 mb-2">
+                                Fees: <a href="single-course.html#fees" class="text-blue-600 hover:underline">View Fee Structure</a>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="single-course.html" class="text-blue-600 hover:underline text-sm font-medium">View Details</a>
+                                <a href="#enroll" class="bg-blue-700 text-white text-sm px-4 py-1 rounded hover:bg-blue-800">Apply</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex justify-between">
-                    <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Read More</a>
-                    <a href="#" class="bg-blue-700 text-white text-sm px-4 py-1 rounded hover:bg-blue-800">Apply</a>
+
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="Assets/images/Machine_Learning.svg" alt="AI & Machine Learning" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold text-blue-900 mb-1">AI & Machine Learning</h4>
+                            <p class="text-sm text-gray-600 mb-2">Duration: 14 Weeks</p>
+                            <p class="text-gray-700 text-sm mb-4">Dive into AI concepts, models, and tools to build intelligent systems.</p>
+                            <div class="flex gap-2 text-xs font-semibold mb-4">
+                                <span class="line-through text-gray-400 px-2 py-1">Regular</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Part-time</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Online</span>
+                            </div>
+                            <div class="text-sm font-semibold text-gray-800 mb-2">
+                                Fees: <a href="single-course.html#fees" class="text-blue-600 hover:underline">View Fee Structure</a>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="single-course.html" class="text-blue-600 hover:underline text-sm font-medium">View Details</a>
+                                <a href="#enroll" class="bg-blue-700 text-white text-sm px-4 py-1 rounded hover:bg-blue-800">Apply</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
             </div>
         </div>
     </section>
@@ -585,16 +608,130 @@
         </div>
     </div>
 
+    <!-- Enroll Modal -->
+    <div id="enroll-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] hidden">
+        <div class="bg-white rounded-lg shadow-xl w-11/12 md:w-2/3 lg:w-1/2 p-6 max-h-[90vh] overflow-y-auto relative">
+            <button id="modal-close" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
 
-    <!-- <footer class="bg-blue-900 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-4">
-                <p class="text-lg">Google Rating: <span class="font-bold">4.9</span> <span class="text-yellow-400">★★★★★</span></p>
-                <p class="text-sm">Based on student reviews</p>
+            <h2 class="text-3xl font-bold text-blue-900 mb-6 text-center">Enroll Now</h2>
+            <p class="text-gray-700 mb-6 text-center">Fill in your details, and our admissions team will contact you to confirm your enrollment.</p>
+
+            <form id="enrollment-form" class="space-y-4">
+                <div>
+                    <label for="full-name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                    <input type="text" id="full-name" name="fullName" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your Full Name" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="+254 7XX XXX XXXX" required>
+                </div>
+                <div>
+                    <label for="preferred-course" class="block text-gray-700 font-semibold mb-2">Preferred Course</label>
+                    <select id="preferred-course" name="preferredCourse" class="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                        <option value="">Select a Course</option>
+                        <option value="financial-literacy">Financial Literacy Basics</option>
+                        <option value="microeconomics">Microeconomics Essentials</option>
+                        <option value="budgeting-mastery">Budgeting Mastery</option>
+                        <option value="business-admin">Intro to Business Admin</option>
+                        <option value="web-dev">Web Development</option>
+                        <option value="mobile-dev">Mobile App Development</option>
+                        <option value="cybersecurity">Cybersecurity</option>
+                        <option value="ai-ml">AI & Machine Learning</option>
+                        <option value="other">Other (Please specify in message)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="preferred-campus" class="block text-gray-700 font-semibold mb-2">Preferred Campus</label>
+                    <select id="preferred-campus" name="preferredCampus" class="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                        <option value="">Select a Campus</option>
+                        <option value="thika">Thika</option>
+                        <option value="buruburu">Buruburu</option>
+                        <option value="Nairobi">Nairobi</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="preferred-intake" class="block text-gray-700 font-semibold mb-2">Preferred Intake</label>
+                    <select id="preferred-intake" name="preferredIntake" class="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                        <option value="">Select an Intake</option>
+                        <option value="january-2026">January 2026</option>
+                        <option value="april-2026">April 2026</option>
+                        <option value="july-2026">July 2026</option>
+                        <option value="october-2026">October 2026</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 font-semibold mb-2">Additional Message (Optional)</label>
+                    <textarea id="message" name="message" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Any specific questions or details?"></textarea>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="consent" name="consent" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" required>
+                    <label for="consent" class="ml-2 text-gray-700 text-sm">I agree to be contacted by Hewitt & Bennet International College regarding my application.</label>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="Assets/images/logo.png" alt="Hewitt and Bennet Logo" class="h-10">
+                    <span class="text-xl font-bold leading-tight">Hewitt And Bennet<br>International College</span>
+                </div>
+                <p class="text-gray-300 text-sm">
+                    Empowering students for global careers through industry-focused and internationally recognized education.
+                </p>
             </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-red-600">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#admissions" class="text-gray-300 hover:text-white transition-colors">Admissions</a></li>
+                    <li><a href="#student-life" class="text-gray-300 hover:text-white transition-colors">Campus Life</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-red-600">Programs & Opportunities</h3>
+                <ul class="space-y-2">
+                    <li><a href="#courses" class="text-gray-300 hover:text-white transition-colors">View All Courses</a></li>
+                    <li><a href="#enroll" class="text-gray-300 hover:text-white transition-colors">Enroll Now</a></li>
+                    <li><a href="#abroad-opportunities" class="text-gray-300 hover:text-white transition-colors">Study Abroad</a></li>
+                    <li><a href="#abroad-opportunities" class="text-gray-300 hover:text-white transition-colors">Work Abroad</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-red-600">Contact & Info</h3>
+                <ul class="space-y-2 mb-4">
+                    <li><a href="mailto:info@hewittandbennet.com" class="text-gray-300 hover:text-white transition-colors">Email: info@hewittbennet.co.ke</a></li>
+                    <li><a href="tel:+1234567890" class="text-gray-300 hover:text-white transition-colors">Phone: +254 740 197 796</a></li>
+                    <li class="text-gray-300">Nairobi, Buruburu, Thika</li>
+                </ul>
+                <div class="mt-4">
+                    <p class="text-lg font-semibold text-white">Google Rating: <span class="font-bold">4.9</span> <span class="text-yellow-400">★★★★★</span></p>
+                    <p class="text-sm text-gray-300">Based on student reviews </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
             <p>&copy; 2025 Hewitt And Bennet International College. All rights reserved.</p>
         </div>
-    </footer> -->
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
     <script>
 
@@ -766,6 +903,68 @@
             } else {
                 startAutoSlide();
             }
+        });
+
+        // Enroll Modal Functionality
+        const enrollButtons = document.querySelectorAll('a[href="#enroll"]');
+        const enrollModal = document.getElementById('enroll-modal');
+        const modalCloseBtn = document.getElementById('modal-close');
+        const enrollmentForm = document.getElementById('enrollment-form');
+
+        // Function to open modal
+        function openEnrollModal(event) {
+            event.preventDefault(); // Prevent default link behavior
+            enrollModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Prevent scrolling body when modal is open
+        }
+
+        // Function to close modal
+        function closeEnrollModal() {
+            enrollModal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            enrollmentForm.reset(); // Clear form fields on close
+        }
+
+        // Add event listeners to all "Enroll Now" buttons
+        enrollButtons.forEach(button => {
+            button.addEventListener('click', openEnrollModal);
+        });
+
+        // Event listener for modal close button
+        modalCloseBtn.addEventListener('click', closeEnrollModal);
+
+        // Close modal if clicked outside the content (on the overlay)
+        enrollModal.addEventListener('click', (event) => {
+            if (event.target === enrollModal) {
+                closeEnrollModal();
+            }
+        });
+
+        // Handle form submission
+        enrollmentForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent actual form submission
+
+            // For now, just log the form data and simulate success
+            const formData = new FormData(enrollmentForm);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            console.log('Enrollment Form Data:', data);
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Thank you for your application! Our admissions team will contact you shortly to confirm.',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                customClass: {
+                    confirmButton: 'bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+                },
+                buttonsStyling: false // Important to disable default SweetAlert button styling if using custom classes
+            }).then(() => {
+                
+                closeEnrollModal(); 
+            });
         });
     </script>
 </body>
