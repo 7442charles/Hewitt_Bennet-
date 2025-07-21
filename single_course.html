@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Name - Single Course Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+
+    <header class="relative z-10 bg-white shadow-sm">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="Assets/images/logo_nobg.png" alt="Hewitt and Bennet Logo" class="h-12 sm:h-14">
+                <span class="text-xl sm:text-2xl font-bold text-blue-900 leading-tight">
+                    Hewitt And Bennet<br class="hidden sm:block" />International College
+                </span>
+            </div>
+
+            <ul class="hidden md:flex space-x-6 absolute left-1/2 transform -translate-x-1/2">
+                <li><a href="/" class="text-lg text-blue-900 hover:text-red-600">Home</a></li>
+                <li><a href="/courses.html" class="text-lg text-blue-900 hover:text-red-600">Courses</a></li>
+            </ul>
+
+            <button id="mobile-menu-toggle" class="md:hidden text-blue-900 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-full bg-white z-40 transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out">
+            <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center space-x-3">
+                        <img src="Assets/images/logo_nobg.png" alt="Hewitt and Bennet Logo" class="h-10">
+                        <span class="text-base font-semibold text-blue-900 leading-tight">
+                            Hewitt And Bennet<br>International College
+                        </span>
+                    </div>
+                    <button id="mobile-menu-close" class="text-blue-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <ul class="flex flex-col space-y-4 text-center">
+                    <li><a href="/" class="text-lg text-blue-900 hover:text-red-600">Home</a></li>
+                    <li><a href="/courses.html" class="text-lg text-blue-900 hover:text-red-600">Courses</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-6 md:p-10">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden md:flex">
+            <div class="md:w-1/2">
+                <img src="Assets/images/financial_literacy_basics.jpg" alt="Financial Literacy Basics Course" class="w-full h-64 md:h-full object-cover">
+            </div>
+
+            <div class="p-6 md:p-8 md:w-1/2">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-4">Financial Literacy Basics</h1>
+                <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                    Dive deep into the world of personal finance with our comprehensive Financial Literacy Basics course. This program is designed to equip you with essential knowledge and practical skills for managing your money effectively, building savings, and making informed financial decisions. Through interactive lessons and real-world exercises, you'll learn about budgeting, debt management, investment fundamentals, and planning for your financial future.
+                </p>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Course Overview:</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li><strong>Duration:</strong> 3 semesters (1 Academic year)</li>
+                        <li><strong>Mode:</strong> Online, Self-paced</li>
+                        <li><strong>Level:</strong> Beginner-friendly</li>
+                        <li><strong>Certification:</strong> Certificate of Completion</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4" id="fees">Course Fee Structure</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <p class="text-gray-700 mb-2">
+                            Our flexible fee structure is designed to accommodate various learning preferences.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                            <li><strong>Standard Enrollment:</strong> ksh 70, 000 (Includes all course materials and online access)</li>
+                            <li><strong>Premium Package:</strong> ksh 90,000 (Includes standard enrollment plus final exams fee)</li>
+                            <li><strong>Per Semester fees:</strong> ksh 30,000</li>
+                        </ul>
+                        <p class="text-sm text-gray-600">
+                            *Prices are subject to change. Please refer to the downloadable fee structure for the most current information.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="path/to/your/fee-structure.pdf" download class="w-full sm:w-auto bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 text-center flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Download Fee Structure (PDF)
+                    </a>
+                    <a href="#enrollment-form" class="w-full sm:w-auto bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition duration-300 text-center flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        Enroll Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // JavaScript for Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.remove('-translate-y-full', 'opacity-0');
+        mobileMenu.classList.add('translate-y-0', 'opacity-100');
+    });
+
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+        mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+            mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+        });
+    });
+</script>
+
+</body>
+</html>
